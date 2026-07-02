@@ -15,8 +15,8 @@ const categories = [
   {
     label: "Reservations",
     items: [
-      { question: "Do I need a reservation?", answer: "Recommended for evenings and groups of 6 or more." },
-      { question: "Can I modify or cancel my reservation?", answer: "Yes, via the confirmation link or by calling us directly." },
+      { question: "Do I need a reservation?", answer: "Recommended for evenings and groups of 6 or more. Call or WhatsApp us and we'll hold a table." },
+      { question: "Can I modify or cancel my reservation?", answer: "Yes — just call or WhatsApp us directly and we'll sort it out." },
     ],
   },
   {

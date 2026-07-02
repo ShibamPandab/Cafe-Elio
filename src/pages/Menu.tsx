@@ -62,9 +62,10 @@ const categoryImages: Record<string, { src: string; focus?: string }> = {
   appetizers: { src: "/images/chicken-tenders-sauces.jpg" },
   sides: { src: "/images/chicken-lollipop.jpg" },
   "momos-pasta": { src: "/images/momos-foil-basket.jpg" },
+  "sandwiches-burgers": { src: "/images/sandwich.jpg" },
   combos: { src: "/images/crispy-chicken-card.jpg" },
-  beverages: { src: "/images/mocktail-flatlay.jpg" },
-  // "sandwiches-burgers" and "dessert" have no matching photo yet — placeholder stays.
+  beverages: { src: "/images/cold-desserts.jpg" },
+  dessert: { src: "/images/brownie-ice-cream.jpg" },
 };
 
 function CategorySection({ category }: { category: (typeof menu)[number] }) {
@@ -127,7 +128,7 @@ function ReservationStrip() {
     <section className="surface-dark grain-overlay">
       <div className="container-page flex flex-col items-center gap-8 px-6 py-24 text-center md:px-10">
         <h2 className="text-4xl md:text-5xl text-bg">Craving Something Already?</h2>
-        <Button to="/reservation">Reserve a Table</Button>
+        <Button to="/contact">Reserve a Table</Button>
       </div>
     </section>
   );

@@ -131,10 +131,10 @@ export function Navigation() {
 
           <div className="hidden lg:block">
             <Link
-              to="/reservation"
+              to="/contact"
               className="focus-ring relative inline-flex items-center px-6 py-3 text-sm tracking-[0.08em] uppercase bg-primary text-bg shadow-sm hover:bg-primary-dim transition-colors duration-300"
             >
-              Reserve a Table
+              Get in Touch
             </Link>
           </div>
 
@@ -204,11 +204,11 @@ export function Navigation() {
             </ul>
             <div className="px-8 pb-10">
               <Link
-                to="/reservation"
+                to="/contact"
                 onClick={() => setDrawerOpen(false)}
                 className="focus-ring flex items-center justify-center w-full px-6 py-4 text-sm tracking-[0.08em] uppercase bg-accent text-dark"
               >
-                Reserve a Table
+                Get in Touch
               </Link>
             </div>
           </motion.div>

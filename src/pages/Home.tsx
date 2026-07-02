@@ -17,7 +17,6 @@ export function Home() {
       <MenuPreview />
       <Experience />
       <Reviews />
-      <EventsStrip />
       <ReservationBand />
       <LocationHours />
       <Moments />
@@ -70,7 +69,7 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="mt-11 flex flex-col gap-4 sm:flex-row"
         >
-          <Button to="/reservation">Reserve a Table</Button>
+          <Button to="/contact">Reserve a Table</Button>
           <Button to="/menu" variant="outline-light">
             View Menu
           </Button>
@@ -301,56 +300,23 @@ function Reviews() {
   );
 }
 
-function EventsStrip() {
-  const offers = [
-    { title: "Weekday Combo Deal", note: "Any combo platter + a shake, Mon–Thu." },
-    { title: "Pool Table Evenings", note: "Rack a game while dinner settles." },
-    { title: "Group Booking Discount", note: "Ask us about parties of 8 or more." },
-  ];
-  return (
-    <section className="bg-primary">
-      <div className="container-page px-6 py-24 md:px-10">
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="eyebrow-light mb-4">This Week</p>
-            <h2 className="text-4xl md:text-5xl text-bg">Offers & Evenings</h2>
-          </div>
-          <Button to="/events" variant="outline-light">
-            See All Events →
-          </Button>
-        </div>
-        <Stagger className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {offers.map((offer) => (
-            <StaggerItem key={offer.title}>
-              <div className="border hairline-light p-8 h-full">
-                <h3 className="text-xl text-bg">{offer.title}</h3>
-                <p className="mt-3 text-sm font-light text-bg/60">{offer.note}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </div>
-    </section>
-  );
-}
-
 function ReservationBand() {
   return (
     <section className="plate-dark grain-overlay">
       <div className="container-page px-6 py-28 text-center md:px-10 md:py-32">
         <Reveal>
-          <h2 className="text-5xl md:text-6xl text-bg">Save Your Table</h2>
+          <h2 className="text-5xl md:text-6xl text-bg">Reserve Your Evening</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mx-auto mt-6 max-w-md font-light text-bg/70">
-            Evenings fill up fast — especially with the pool table in play. Tell us the date,
-            time, and how many are joining.
+            Evenings fill up fast — especially with the pool table in play. Call ahead, or
+            reach out and we'll have a table waiting.
           </p>
         </Reveal>
         <Reveal delay={0.2}>
           <div className="mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button to="/reservation">Reserve Now</Button>
-            <Button href="tel:+910000000000" variant="outline-light">
+            <Button to="/contact">Reserve a Table</Button>
+            <Button href={address.phoneHref} variant="outline-light">
               Call Us
             </Button>
           </div>
@@ -365,8 +331,14 @@ function LocationHours() {
     <section className="container-page px-6 py-28 md:px-10 md:py-36">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
         <Reveal>
-          <div className="aspect-4/3 border hairline flex items-center justify-center bg-bg-raised">
-            <p className="eyebrow">Map Embed — Cafe Elio, Jadavpur</p>
+          <div className="aspect-4/3 border hairline overflow-hidden">
+            <iframe
+              title="Cafe Elio location on Google Maps"
+              src={address.mapsEmbedSrc}
+              className="h-full w-full grayscale-[20%]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </Reveal>
         <div>
@@ -385,8 +357,8 @@ function LocationHours() {
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Button href="https://maps.google.com">Get Directions</Button>
-              <Button href="tel:+910000000000" variant="outline">
+              <Button href={address.mapsHref}>Get Directions</Button>
+              <Button href={address.phoneHref} variant="outline">
                 Call Now
               </Button>
             </div>
@@ -426,7 +398,7 @@ function Moments() {
           ))}
         </Stagger>
         <div className="mt-12 text-center">
-          <Button href="https://instagram.com" variant="ghost">
+          <Button href={address.instagram} variant="ghost">
             Follow on Instagram →
           </Button>
         </div>
@@ -443,7 +415,7 @@ function Newsletter() {
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-3xl md:text-4xl text-bg">Stay in the Loop</h2>
           <p className="mt-4 font-light text-bg/60">
-            New menu items, events, and the occasional offer. No spam.
+            New dishes, evenings, and the occasional offer. No spam.
           </p>
           {status === "idle" ? (
             <form

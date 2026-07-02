@@ -5,8 +5,6 @@ export const navLinks = [
   { label: "Menu", to: "/menu" },
   { label: "About", to: "/about" },
   { label: "Gallery", to: "/gallery" },
-  { label: "Events", to: "/events" },
-  { label: "Journal", to: "/journal" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -31,7 +29,7 @@ export const signaturePicks: (SignaturePick & { image?: string; focus?: string }
     description: "Wok-tossed hakka noodles, heavy on the garlic.",
     price: "₹—",
     anchor: "/menu#momos-pasta",
-    // No real photo of this dish yet — keeps the elegant placeholder until one is shot.
+    image: "/images/chicken-garlic-noodles.jpg",
   },
   {
     name: "Strawberry Mojito",
@@ -77,4 +75,11 @@ export const address = {
   line1: "Cafe Elio",
   line2: "Jadavpur, Kolkata, West Bengal",
   phone: "+91 00000 00000",
+  phoneHref: "tel:+910000000000",
+  whatsappHref: "https://wa.me/910000000000",
+  email: "hello@cafeelio.in",
+  mapsHref: "https://maps.google.com",
+  mapsEmbedSrc: "https://maps.google.com/maps?q=Jadavpur%2C%20Kolkata&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  instagram: "https://instagram.com",
+  facebook: "https://facebook.com",
 };

@@ -19,13 +19,13 @@ export function Footer() {
               A neighbourhood cafe & lounge in Jadavpur — good food, better vibe.
             </p>
             <div className="mt-8 flex gap-5 text-sm tracking-[0.05em] text-bg/70">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Follow Cafe Elio on Instagram" className="focus-ring hover:text-accent transition-colors">
+              <a href={address.instagram} target="_blank" rel="noreferrer" aria-label="Follow Cafe Elio on Instagram" className="focus-ring hover:text-accent transition-colors">
                 Instagram
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Follow Cafe Elio on Facebook" className="focus-ring hover:text-accent transition-colors">
+              <a href={address.facebook} target="_blank" rel="noreferrer" aria-label="Follow Cafe Elio on Facebook" className="focus-ring hover:text-accent transition-colors">
                 Facebook
               </a>
-              <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer" aria-label="Message Cafe Elio on WhatsApp" className="focus-ring hover:text-accent transition-colors">
+              <a href={address.whatsappHref} target="_blank" rel="noreferrer" aria-label="Message Cafe Elio on WhatsApp" className="focus-ring hover:text-accent transition-colors">
                 WhatsApp
               </a>
             </div>
@@ -38,7 +38,6 @@ export function Footer() {
               <li><Link to="/menu" className="focus-ring hover:text-bg transition-colors">Menu</Link></li>
               <li><Link to="/about" className="focus-ring hover:text-bg transition-colors">About</Link></li>
               <li><Link to="/gallery" className="focus-ring hover:text-bg transition-colors">Gallery</Link></li>
-              <li><Link to="/events" className="focus-ring hover:text-bg transition-colors">Events</Link></li>
             </ul>
           </nav>
 
@@ -47,7 +46,6 @@ export function Footer() {
             <ul className="space-y-3 text-sm font-light text-bg/70">
               <li><Link to="/faq" className="focus-ring hover:text-bg transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="focus-ring hover:text-bg transition-colors">Contact</Link></li>
-              <li><Link to="/reservation" className="focus-ring hover:text-bg transition-colors">Reservation</Link></li>
             </ul>
           </nav>
 
@@ -60,7 +58,7 @@ export function Footer() {
               {hours}
             </address>
             <a
-              href="https://maps.google.com"
+              href={address.mapsHref}
               target="_blank"
               rel="noreferrer"
               className="focus-ring mt-4 inline-block text-sm tracking-[0.05em] text-accent hover:text-bg transition-colors"

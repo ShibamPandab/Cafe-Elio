@@ -113,7 +113,7 @@ export function About() {
 
       <section className="container-page flex flex-col items-center gap-8 px-6 py-28 text-center md:px-10">
         <h2 className="text-4xl md:text-5xl">Come Sit With Us.</h2>
-        <Button to="/reservation">Reserve a Table</Button>
+        <Button to="/contact">Reserve a Table</Button>
       </section>
     </>
   );

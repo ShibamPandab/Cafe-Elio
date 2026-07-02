@@ -16,11 +16,13 @@ interface GalleryPhoto {
 const photos: GalleryPhoto[] = [
   { label: "Foil-Wrapped Appetizer Platter", category: "Food", src: "/images/momos-foil-basket.jpg" },
   { label: "Peri Peri Fries Basket", category: "Food", src: "/images/fries-and-mojito.jpg", focus: "left" },
-  { label: "Garlic Noodle Bowl", category: "Food" }, // no photo yet
+  { label: "Garlic Noodle Bowl", category: "Food", src: "/images/chicken-garlic-noodles.jpg" },
   { label: "Strawberry Mojito", category: "Food", src: "/images/fries-and-mojito.jpg", focus: "right" },
-  { label: "Grilled Sandwich Stack", category: "Food" }, // no photo yet
+  { label: "Grilled Sandwich Stack", category: "Food", src: "/images/sandwich.jpg" },
   { label: "Chicken Lollipop Plate", category: "Food", src: "/images/chicken-lollipop.jpg" },
   { label: "Crispy Chicken Tenders", category: "Food", src: "/images/chicken-tenders-sauces.jpg" },
+  { label: "KitKat Shake", category: "Food", src: "/images/cold-desserts.jpg" },
+  { label: "Brownie with Ice Cream", category: "Food", src: "/images/brownie-ice-cream.jpg" },
   { label: "Cappuccino", category: "Food", src: "/images/cappuccino-cup.jpg" },
   { label: "Blue-Lit Interior", category: "Ambience", src: "/images/mocktails-purple-mood.jpg" },
   { label: "Graffiti Wall Art", category: "Ambience", src: "/images/graffiti-wall-dark.jpg" },
@@ -152,7 +154,7 @@ export function Gallery() {
       <section className="surface-dark grain-overlay">
         <div className="container-page flex flex-col items-center gap-8 px-6 py-24 text-center md:px-10">
           <h2 className="text-4xl md:text-5xl text-bg">Seen Enough? Come Feel It.</h2>
-          <Button to="/reservation">Reserve a Table</Button>
+          <Button to="/contact">Reserve a Table</Button>
         </div>
       </section>
     </>

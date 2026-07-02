@@ -8,11 +8,8 @@ import { Home } from "./pages/Home";
 import { Menu } from "./pages/Menu";
 import { About } from "./pages/About";
 import { Gallery } from "./pages/Gallery";
-import { Reservation } from "./pages/Reservation";
 import { Contact } from "./pages/Contact";
 import { FAQ } from "./pages/FAQ";
-import { Events } from "./pages/Events";
-import { Journal } from "./pages/Journal";
 import { NotFound } from "./pages/NotFound";
 
 function ScrollToTop() {
@@ -56,11 +53,8 @@ function App() {
               <Route path="/menu" element={<Menu />} />
               <Route path="/about" element={<About />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/reservation" element={<Reservation />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/faq" element={<FAQ />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/journal" element={<Journal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
