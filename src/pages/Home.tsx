@@ -20,7 +20,7 @@ export function Home() {
       <EventsStrip />
       <ReservationBand />
       <LocationHours />
-      <InstagramFeed />
+      <Moments />
       <Newsletter />
     </>
   );
@@ -28,7 +28,14 @@ export function Home() {
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden plate-dark grain-overlay">
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden grain-overlay">
+      <img
+        src="/images/graffiti-blue-laser.jpg"
+        alt="Cafe Elio's graffiti-wall lounge lit in blue"
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{ objectPosition: "center 30%" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-dark/20" />
       <div className="container-page relative z-10 w-full px-6 pb-20 pt-40 md:px-10 md:pb-28">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -90,7 +97,14 @@ function SignaturePicks() {
         {signaturePicks.map((pick) => (
           <StaggerItem key={pick.name}>
             <a href={pick.anchor} className="focus-ring group block">
-              <Plate label={pick.name} ratio="aspect-3/4" className="transition-transform duration-500 group-hover:-translate-y-2" />
+              <Plate
+                label={pick.name}
+                ratio="aspect-3/4"
+                src={pick.image}
+                alt={pick.name}
+                focus={pick.focus}
+                className="transition-transform duration-500 group-hover:-translate-y-2"
+              />
               <h3 className="mt-5 text-2xl">{pick.name}</h3>
               <p className="mt-2 text-sm font-light text-dark/60">{pick.description}</p>
             </a>
@@ -113,7 +127,14 @@ function BrandStory() {
     <section className="surface-dark grain-overlay">
       <div className="container-page grid grid-cols-1 items-center gap-16 px-6 py-28 md:grid-cols-2 md:px-10 md:py-36">
         <Reveal>
-          <Plate dark label="Cafe Elio — the room" ratio="aspect-square" />
+          <Plate
+            dark
+            label="Cafe Elio — the room"
+            ratio="aspect-square"
+            src="/images/leather-booth-lounge.jpg"
+            alt="Leather booth seating and wall art at Cafe Elio"
+            focus="center 30%"
+          />
         </Reveal>
         <div>
           <Reveal>
@@ -203,9 +224,21 @@ function Experience() {
           subtitle="Blue-lit corners, a wall that tells its own story, and a pool table for the nights that run long."
         />
         <Stagger className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {["Mood Lighting", "Graffiti Wall", "Pool Table", "Fairy-Lit Ceiling"].map((label, i) => (
-            <StaggerItem key={label} className={i === 0 ? "col-span-2 row-span-2" : ""}>
-              <Plate dark label={label} ratio={i === 0 ? "aspect-square" : "aspect-4/5"} />
+          {[
+            { label: "Mood Lighting", src: "/images/booth-mural-nook.jpg", focus: "center" },
+            { label: "Graffiti Wall", src: "/images/graffiti-wall-dark.jpg", focus: "center" },
+            { label: "Pool Table", src: "/images/pool-table-wide.jpg", focus: "center 40%" },
+            { label: "Fairy-Lit Ceiling", src: "/images/graffiti-ceiling-bright.jpg", focus: "top" },
+          ].map((tile, i) => (
+            <StaggerItem key={tile.label} className={i === 0 ? "col-span-2 row-span-2" : ""}>
+              <Plate
+                dark
+                label={tile.label}
+                ratio={i === 0 ? "aspect-square" : "aspect-4/5"}
+                src={tile.src}
+                alt={tile.label + " at Cafe Elio"}
+                focus={tile.focus}
+              />
             </StaggerItem>
           ))}
         </Stagger>
@@ -364,23 +397,31 @@ function LocationHours() {
   );
 }
 
-function InstagramFeed() {
+const moments = [
+  { src: "/images/mocktails-purple-mood.jpg", alt: "Mocktails under blue mood lighting" },
+  { src: "/images/cappuccino-cup.jpg", alt: "Cappuccino at Cafe Elio" },
+  { src: "/images/quirky-wall-prints.jpg", alt: "Quirky framed wall art at Cafe Elio" },
+  { src: "/images/big-ben-painting.jpg", alt: "Colourful canvas art on the wall" },
+  { src: "/images/crispy-chicken-card.jpg", alt: "Crispy chicken platter with the Cafe Elio card" },
+  { src: "/images/pool-table-dark.jpg", alt: "Pool table in moody lighting" },
+  { src: "/images/leather-booth-lounge.jpg", alt: "Leather booth seating nook" },
+  { src: "/images/birthday-balloons.jpg", alt: "A birthday celebration at Cafe Elio" },
+];
+
+function Moments() {
   return (
     <section className="bg-bg-raised">
       <div className="container-page px-6 py-28 md:px-10 md:py-32">
-        <SectionHeading eyebrow="@CafeElio" title="Tag Us @CafeElio" subtitle="Follow along for new dishes, evenings, and behind-the-counter moments." align="center" className="mx-auto" />
+        <SectionHeading eyebrow="Moments" title="Moments at Café Elio" subtitle="New dishes, evenings, and behind-the-counter moments — no filter required." align="center" className="mx-auto" />
         <Stagger className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <StaggerItem key={i}>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="focus-ring group block"
-                aria-label="View post on Instagram"
-              >
-                <Plate ratio="aspect-square" className="transition-opacity duration-300 group-hover:opacity-80" />
-              </a>
+          {moments.map((moment) => (
+            <StaggerItem key={moment.src}>
+              <Plate
+                ratio="aspect-square"
+                src={moment.src}
+                alt={moment.alt}
+                className="transition-opacity duration-300 hover:opacity-80"
+              />
             </StaggerItem>
           ))}
         </Stagger>

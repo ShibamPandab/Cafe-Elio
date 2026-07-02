@@ -31,6 +31,15 @@ export function About() {
       </section>
 
       <section className="container-page px-6 py-28 md:px-10 md:py-36">
+        <Reveal>
+          <Plate
+            ratio="aspect-[21/9]"
+            src="/images/booth-mural-nook.jpg"
+            alt="A two-seater table nook at Cafe Elio, warmly lit"
+            focus="center 35%"
+            className="mb-16"
+          />
+        </Reveal>
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:items-center">
           <Reveal>
             <p className="text-2xl md:text-3xl font-serif leading-snug text-balance">
@@ -72,9 +81,23 @@ export function About() {
             subtitle="We lit every corner to be worth staying in — and worth remembering."
           />
           <Stagger className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {["Blue-Lit Interior", "Graffiti Wall", "Pool Table Lounge", "Wooden Communal Tables", "Fairy Lights", "Foil-Wrapped Platters"].map((label) => (
-              <StaggerItem key={label}>
-                <Plate dark label={label} ratio="aspect-4/5" />
+            {[
+              { label: "Blue-Lit Interior", src: "/images/mocktails-purple-mood.jpg" },
+              { label: "Graffiti Wall", src: "/images/graffiti-ceiling-bright.jpg", focus: "bottom" },
+              { label: "Pool Table Lounge", src: "/images/pool-table-dark.jpg" },
+              { label: "Wooden Communal Tables", src: "/images/mocktail-flatlay.jpg" },
+              { label: "Fairy Lights", src: "/images/entrance-fairy-lights.jpg", focus: "top" },
+              { label: "Foil-Wrapped Platters", src: "/images/momos-foil-basket.jpg" },
+            ].map((tile) => (
+              <StaggerItem key={tile.label}>
+                <Plate
+                  dark
+                  label={tile.label}
+                  ratio="aspect-4/5"
+                  src={tile.src}
+                  alt={tile.label + " at Cafe Elio"}
+                  focus={tile.focus}
+                />
               </StaggerItem>
             ))}
           </Stagger>

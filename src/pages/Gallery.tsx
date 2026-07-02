@@ -6,19 +6,32 @@ import { Plate } from "../components/ui/Plate";
 
 type Category = "All" | "Food" | "Ambience" | "Events";
 
-const photos: { label: string; category: Exclude<Category, "All"> }[] = [
-  { label: "Foil-Wrapped Appetizer Platter", category: "Food" },
-  { label: "Peri Peri Fries Basket", category: "Food" },
-  { label: "Garlic Noodle Bowl", category: "Food" },
-  { label: "Strawberry Mojito", category: "Food" },
-  { label: "Grilled Sandwich Stack", category: "Food" },
-  { label: "Chicken Lollipop Plate", category: "Food" },
-  { label: "Blue-Lit Interior", category: "Ambience" },
-  { label: "Graffiti Wall Art", category: "Ambience" },
-  { label: "Pool Table Lounge", category: "Ambience" },
-  { label: "Fairy-Lit Ceiling Detail", category: "Ambience" },
-  { label: "Wooden Communal Tables", category: "Ambience" },
-  { label: "Evening Get-Together", category: "Events" },
+interface GalleryPhoto {
+  label: string;
+  category: Exclude<Category, "All">;
+  src?: string;
+  focus?: string;
+}
+
+const photos: GalleryPhoto[] = [
+  { label: "Foil-Wrapped Appetizer Platter", category: "Food", src: "/images/momos-foil-basket.jpg" },
+  { label: "Peri Peri Fries Basket", category: "Food", src: "/images/fries-and-mojito.jpg", focus: "left" },
+  { label: "Garlic Noodle Bowl", category: "Food" }, // no photo yet
+  { label: "Strawberry Mojito", category: "Food", src: "/images/fries-and-mojito.jpg", focus: "right" },
+  { label: "Grilled Sandwich Stack", category: "Food" }, // no photo yet
+  { label: "Chicken Lollipop Plate", category: "Food", src: "/images/chicken-lollipop.jpg" },
+  { label: "Crispy Chicken Tenders", category: "Food", src: "/images/chicken-tenders-sauces.jpg" },
+  { label: "Cappuccino", category: "Food", src: "/images/cappuccino-cup.jpg" },
+  { label: "Blue-Lit Interior", category: "Ambience", src: "/images/mocktails-purple-mood.jpg" },
+  { label: "Graffiti Wall Art", category: "Ambience", src: "/images/graffiti-wall-dark.jpg" },
+  { label: "Pool Table Lounge", category: "Ambience", src: "/images/pool-table-wide.jpg", focus: "center 40%" },
+  { label: "Fairy-Lit Ceiling Detail", category: "Ambience", src: "/images/graffiti-ceiling-bright.jpg", focus: "top" },
+  { label: "Wooden Communal Tables", category: "Ambience", src: "/images/mocktail-flatlay.jpg" },
+  { label: "The Entrance", category: "Ambience", src: "/images/entrance-fairy-lights.jpg", focus: "top" },
+  { label: "Quirky Wall Art", category: "Ambience", src: "/images/quirky-wall-prints.jpg" },
+  { label: "Canvas Art Corner", category: "Ambience", src: "/images/big-ben-painting.jpg" },
+  { label: "Leather Booth Seating", category: "Ambience", src: "/images/leather-booth-lounge.jpg" },
+  { label: "Evening Get-Together", category: "Events", src: "/images/birthday-balloons.jpg" },
 ];
 
 const filters: Category[] = ["All", "Food", "Ambience", "Events"];
@@ -67,7 +80,14 @@ export function Gallery() {
                 className="focus-ring group block w-full text-left"
                 aria-label={`Expand photo: ${photo.label}`}
               >
-                <Plate label={photo.label} ratio="aspect-4/5" className="transition-transform duration-500 group-hover:scale-[1.02]" />
+                <Plate
+                  label={photo.label}
+                  ratio="aspect-4/5"
+                  src={photo.src}
+                  alt={photo.label}
+                  focus={photo.focus}
+                  className="transition-transform duration-500 group-hover:scale-[1.02]"
+                />
               </button>
             </StaggerItem>
           ))}
@@ -105,7 +125,14 @@ export function Gallery() {
               ←
             </button>
             <div className="max-w-lg w-full" onClick={(e) => e.stopPropagation()}>
-              <Plate dark label={visible[lightbox].label} ratio="aspect-4/5" />
+              <Plate
+                dark
+                label={visible[lightbox].label}
+                ratio="aspect-4/5"
+                src={visible[lightbox].src}
+                alt={visible[lightbox].label}
+                focus={visible[lightbox].focus}
+              />
             </div>
             <button
               type="button"

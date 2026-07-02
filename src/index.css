@@ -130,4 +130,8 @@
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
   }
+
+  .text-shadow-soft {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+  }
 }

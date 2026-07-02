@@ -58,14 +58,30 @@ function CategoryFilterBar() {
   );
 }
 
+const categoryImages: Record<string, { src: string; focus?: string }> = {
+  appetizers: { src: "/images/chicken-tenders-sauces.jpg" },
+  sides: { src: "/images/chicken-lollipop.jpg" },
+  "momos-pasta": { src: "/images/momos-foil-basket.jpg" },
+  combos: { src: "/images/crispy-chicken-card.jpg" },
+  beverages: { src: "/images/mocktail-flatlay.jpg" },
+  // "sandwiches-burgers" and "dessert" have no matching photo yet — placeholder stays.
+};
+
 function CategorySection({ category }: { category: (typeof menu)[number] }) {
+  const image = categoryImages[category.id];
   return (
     <section id={category.id} className="scroll-mt-20 border-b hairline">
       <div className="container-page px-6 py-20 md:px-10 md:py-28">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[280px_1fr]">
           <div>
             <Reveal>
-              <Plate label={category.label} ratio="aspect-square" />
+              <Plate
+                label={category.label}
+                ratio="aspect-square"
+                src={image?.src}
+                alt={category.label + " at Cafe Elio"}
+                focus={image?.focus}
+              />
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 text-4xl">{category.label}</h2>

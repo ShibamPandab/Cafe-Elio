@@ -10,30 +10,36 @@ export const navLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
-export const signaturePicks: SignaturePick[] = [
+export const signaturePicks: (SignaturePick & { image?: string; focus?: string })[] = [
   {
     name: "Chicken Lollipop",
     description: "Marinated wings, dressed lollipop-style, deep fried to order.",
     price: "₹250",
     anchor: "/menu#appetizers",
+    image: "/images/chicken-lollipop.jpg",
   },
   {
     name: "Peri Peri French Fries",
     description: "The side dish every review mentions first.",
     price: "₹—",
     anchor: "/menu#sides",
+    image: "/images/fries-and-mojito.jpg",
+    focus: "left",
   },
   {
     name: "Garlic Noodles",
     description: "Wok-tossed hakka noodles, heavy on the garlic.",
     price: "₹—",
     anchor: "/menu#momos-pasta",
+    // No real photo of this dish yet — keeps the elegant placeholder until one is shot.
   },
   {
     name: "Strawberry Mojito",
     description: "The mocktail that starts every conversation about this place.",
     price: "₹—",
     anchor: "/menu#beverages",
+    image: "/images/fries-and-mojito.jpg",
+    focus: "right",
   },
 ];
 

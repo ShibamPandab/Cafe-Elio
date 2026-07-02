@@ -4,17 +4,26 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { navLinks } from "../../data/content";
 
-function Logo({ light }: { light?: boolean }) {
+function Logo({ light, shadow }: { light?: boolean; shadow?: boolean }) {
   return (
-    <Link to="/" className="focus-ring flex items-baseline gap-1.5 leading-none">
+    <Link
+      to="/"
+      className={clsx(
+        "focus-ring flex items-baseline gap-1.5 leading-none transition-colors duration-300",
+        shadow && "text-shadow-soft",
+      )}
+    >
       <span
-        className={clsx("text-3xl md:text-4xl", light ? "text-bg" : "text-primary")}
+        className={clsx("text-3xl md:text-4xl transition-colors duration-300", light ? "text-bg" : "text-primary")}
         style={{ fontFamily: "var(--font-script)" }}
       >
         Cafe
       </span>
       <span
-        className={clsx("text-2xl md:text-3xl tracking-[0.06em]", light ? "text-accent" : "text-dark")}
+        className={clsx(
+          "text-2xl md:text-3xl tracking-[0.06em] transition-colors duration-300",
+          light ? "text-accent" : "text-dark",
+        )}
         style={{ fontFamily: "var(--font-wordmark)" }}
       >
         Elio
@@ -32,10 +41,11 @@ export function Navigation() {
   useEffect(() => {
     function onScroll() {
       const y = window.scrollY;
-      setScrolled(y > 40);
+      setScrolled(y > 72);
       setHidden(y > lastY.current && y > 200);
       lastY.current = y;
     }
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -76,17 +86,19 @@ export function Navigation() {
         <nav
           aria-label="Primary"
           className={clsx(
-            "container-page flex items-center justify-between px-6 md:px-10 transition-all duration-500",
+            "container-page relative flex items-center justify-between px-6 md:px-10 transition-[padding] duration-300",
             scrolled ? "py-4" : "py-7",
           )}
         >
           <div
             className={clsx(
-              "absolute inset-0 -z-10 transition-opacity duration-500",
-              scrolled ? "opacity-100 bg-bg/90 backdrop-blur-md border-b hairline" : "opacity-0",
+              "absolute inset-0 -z-10 transition-all duration-300",
+              scrolled
+                ? "opacity-100 bg-bg/95 backdrop-blur-md shadow-[0_4px_24px_rgba(22,22,22,0.08)] border-b hairline"
+                : "opacity-0",
             )}
           />
-          <Logo />
+          <Logo light={!scrolled} shadow={!scrolled} />
 
           <ul className="hidden lg:flex items-center gap-9">
             {navLinks.map((link) => (
@@ -95,15 +107,20 @@ export function Navigation() {
                   to={link.to}
                   className={({ isActive }) =>
                     clsx(
-                      "focus-ring group relative text-sm tracking-[0.04em] text-dark/80 hover:text-dark transition-colors",
-                      isActive && "text-dark",
+                      "focus-ring group relative text-sm tracking-[0.04em] transition-colors duration-300",
+                      !scrolled && "text-shadow-soft",
+                      isActive
+                        ? "text-primary"
+                        : scrolled
+                          ? "text-dark/80 hover:text-dark"
+                          : "text-bg/90 hover:text-bg",
                     )
                   }
                 >
                   {({ isActive }) => (
                     <>
                       {link.label}
-                      <span className="absolute -bottom-1 left-0 h-px w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+                      <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 ease-out group-hover:w-full" />
                       {isActive && <span className="absolute -bottom-2.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />}
                     </>
                   )}
@@ -115,7 +132,7 @@ export function Navigation() {
           <div className="hidden lg:block">
             <Link
               to="/reservation"
-              className="focus-ring relative inline-flex items-center px-6 py-3 text-sm tracking-[0.08em] uppercase bg-primary text-bg hover:bg-primary-dim transition-colors"
+              className="focus-ring relative inline-flex items-center px-6 py-3 text-sm tracking-[0.08em] uppercase bg-primary text-bg shadow-sm hover:bg-primary-dim transition-colors duration-300"
             >
               Reserve a Table
             </Link>
@@ -129,8 +146,18 @@ export function Navigation() {
             className="focus-ring lg:hidden flex flex-col gap-1.5 p-2"
           >
             <span className="sr-only">Open menu</span>
-            <span className="block h-px w-7 bg-dark" />
-            <span className="block h-px w-7 bg-dark" />
+            <span
+              className={clsx(
+                "block h-px w-7 transition-colors duration-300",
+                scrolled ? "bg-dark" : "bg-bg",
+              )}
+            />
+            <span
+              className={clsx(
+                "block h-px w-7 transition-colors duration-300",
+                scrolled ? "bg-dark" : "bg-bg",
+              )}
+            />
           </button>
         </nav>
       </header>
