@@ -292,7 +292,7 @@ function Reviews() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <Button variant="ghost" href="https://google.com/maps">
+          <Button variant="ghost" href="https://www.google.com/maps/search/?api=1&query=Cafe+Elio+Regent+Estate+Jadavpur+Kolkata">
             Read More Reviews on Google →
           </Button>
         </div>
@@ -385,7 +385,7 @@ function LocationHours() {
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Button href="https://maps.google.com">Get Directions</Button>
+              <Button href="https://www.google.com/maps/dir/?api=1&destination=Cafe+Elio+Regent+Estate+Jadavpur+Kolkata+700092">Get Directions</Button>
               <Button href="tel:+910000000000" variant="outline">
                 Call Now
               </Button>

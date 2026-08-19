@@ -74,7 +74,8 @@ export const menuPreview = [
 export const hours = "12:00 PM – 10:00 PM, daily";
 
 export const address = {
-  line1: "Cafe Elio",
-  line2: "Jadavpur, Kolkata, West Bengal",
+  line1: "124/1, Ananda Pally, Regent Estate",
+  line2: "Jadavpur, Kolkata, West Bengal 700092",
+  // TODO: replace with the venue's real published phone number before launch.
   phone: "+91 00000 00000",
 };
