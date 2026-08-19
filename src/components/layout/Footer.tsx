@@ -60,7 +60,7 @@ export function Footer() {
               {hours}
             </address>
             <a
-              href="https://maps.google.com"
+              href="https://www.google.com/maps/dir/?api=1&destination=Cafe+Elio+Regent+Estate+Jadavpur+Kolkata+700092"
               target="_blank"
               rel="noreferrer"
               className="focus-ring mt-4 inline-block text-sm tracking-[0.05em] text-accent hover:text-bg transition-colors"

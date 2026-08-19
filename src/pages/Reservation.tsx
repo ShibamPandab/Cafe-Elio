@@ -279,7 +279,7 @@ function ConfirmationState({ form, onReset }: { form: FormState; onReset: () => 
         We'll text or call to confirm within a couple of hours.
       </p>
       <div className="mt-9 flex flex-wrap gap-4">
-        <Button href="https://maps.google.com" variant="outline">
+        <Button href="https://www.google.com/maps/dir/?api=1&destination=Cafe+Elio+Regent+Estate+Jadavpur+Kolkata+700092" variant="outline">
           Get Directions
         </Button>
         <Button to="/menu" variant="outline">
