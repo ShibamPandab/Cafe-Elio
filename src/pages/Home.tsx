@@ -365,8 +365,14 @@ function LocationHours() {
     <section className="container-page px-6 py-28 md:px-10 md:py-36">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
         <Reveal>
-          <div className="aspect-4/3 border hairline flex items-center justify-center bg-bg-raised">
-            <p className="eyebrow">Map Embed — Cafe Elio, Jadavpur</p>
+          <div className="aspect-4/3 border hairline overflow-hidden bg-bg-raised">
+            <iframe
+              title="Map showing Café Elio in Regent Estate, Jadavpur, Kolkata"
+              src="https://maps.google.com/maps?q=Cafe%20Elio%20Regent%20Estate%20Jadavpur%20Kolkata%20700092&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-full w-full border-0"
+            />
           </div>
         </Reveal>
         <div>
