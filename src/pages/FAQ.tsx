@@ -7,7 +7,7 @@ const categories = [
   {
     label: "General",
     items: [
-      { question: "What are your opening hours?", answer: "12:00 PM – 10:00 PM, daily." },
+      { question: "What are your opening hours?", answer: "Opens 12:00 PM daily." },
       { question: "Is Cafe Elio family-friendly?", answer: "Yes — the space works for families, friends, and couples alike." },
       { question: "Is there a pool table?", answer: "Yes, available on a first-come basis. Ask staff about availability." },
     ],

@@ -19,13 +19,7 @@ export function Footer() {
               A neighbourhood cafe & lounge in Jadavpur — good food, better vibe.
             </p>
             <div className="mt-8 flex gap-5 text-sm tracking-[0.05em] text-bg/70">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Follow Cafe Elio on Instagram" className="focus-ring hover:text-accent transition-colors">
-                Instagram
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Follow Cafe Elio on Facebook" className="focus-ring hover:text-accent transition-colors">
-                Facebook
-              </a>
-              <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer" aria-label="Message Cafe Elio on WhatsApp" className="focus-ring hover:text-accent transition-colors">
+              <a href="https://wa.me/919836695438" target="_blank" rel="noreferrer" aria-label="Message Cafe Elio on WhatsApp" className="focus-ring hover:text-accent transition-colors">
                 WhatsApp
               </a>
             </div>

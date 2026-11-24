@@ -21,7 +21,6 @@ export function Home() {
       <ReservationBand />
       <LocationHours />
       <Moments />
-      <Newsletter />
     </>
   );
 }
@@ -303,9 +302,9 @@ function Reviews() {
 
 function EventsStrip() {
   const offers = [
-    { title: "Weekday Combo Deal", note: "Any combo platter + a shake, Mon–Thu." },
+    { title: "Weekday Combo Deal (sample)", note: "Any combo platter + a shake, Mon–Thu." },
     { title: "Pool Table Evenings", note: "Rack a game while dinner settles." },
-    { title: "Group Booking Discount", note: "Ask us about parties of 8 or more." },
+    { title: "Group Booking Discount (sample)", note: "Ask us about parties of 8 or more." },
   ];
   return (
     <section className="bg-primary">
@@ -350,7 +349,7 @@ function ReservationBand() {
         <Reveal delay={0.2}>
           <div className="mt-11 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button to="/reservation">Reserve Now</Button>
-            <Button href="tel:+910000000000" variant="outline-light">
+            <Button href="tel:+919836695438" variant="outline-light">
               Call Us
             </Button>
           </div>
@@ -392,7 +391,7 @@ function LocationHours() {
           <Reveal delay={0.24}>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Button href="https://www.google.com/maps/dir/?api=1&destination=Cafe+Elio+Regent+Estate+Jadavpur+Kolkata+700092">Get Directions</Button>
-              <Button href="tel:+910000000000" variant="outline">
+              <Button href="tel:+919836695438" variant="outline">
                 Call Now
               </Button>
             </div>
@@ -432,8 +431,8 @@ function Moments() {
           ))}
         </Stagger>
         <div className="mt-12 text-center">
-          <Button href="https://instagram.com" variant="ghost">
-            Follow on Instagram →
+          <Button href="https://www.google.com/maps/search/?api=1&query=Cafe+Elio+Regent+Estate+Jadavpur+Kolkata" variant="ghost">
+            See More Photos on Google →
           </Button>
         </div>
       </div>
@@ -441,7 +440,8 @@ function Moments() {
   );
 }
 
-function Newsletter() {
+// Not shown in the demo: the form does not send anywhere yet.
+export function Newsletter() {
   const [status, setStatus] = useState<"idle" | "success">("idle");
   return (
     <section className="surface-dark">

@@ -3,9 +3,9 @@ import { SectionHeading } from "../components/ui/SectionHeading";
 import { Button } from "../components/ui/Button";
 
 const offers = [
-  { title: "Weekday Combo Deal", note: "Any combo platter + a shake. Valid Monday through Thursday." },
+  { title: "Weekday Combo Deal (sample)", note: "Any combo platter + a shake. Valid Monday through Thursday." },
   { title: "Pool Table Happy Hour", note: "Extended table time on weekday evenings, 6–8 PM." },
-  { title: "Group Booking Discount", note: "Ask us about parties of 8 or more." },
+  { title: "Group Booking Discount (sample)", note: "Ask us about parties of 8 or more." },
 ];
 
 export function Events() {

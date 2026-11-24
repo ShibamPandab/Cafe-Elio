@@ -24,11 +24,13 @@ function ScrollToTop() {
 }
 
 const INTRO_KEY = "cafe-elio-intro-shown";
+// Intro video is off for the demo: it shows coffee beans, and a long intro on phones makes people leave.
+const ENABLE_INTRO = false;
 
 function App() {
   const { pathname } = useLocation();
   const [showIntro, setShowIntro] = useState(
-    () => pathname === "/" && !sessionStorage.getItem(INTRO_KEY),
+    () => ENABLE_INTRO && pathname === "/" && !sessionStorage.getItem(INTRO_KEY),
   );
   const [revealed, setRevealed] = useState(!showIntro);
 
@@ -39,7 +41,7 @@ function App() {
   }
 
   return (
-    <div className="grain-overlay min-h-screen">
+    <div className="grain-overlay min-h-screen pb-12">
       <ScrollToTop />
       {showIntro && <IntroSplash onComplete={handleIntroComplete} />}
 
@@ -49,6 +51,12 @@ function App() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <Navigation />
+        <div
+          role="note"
+          className="fixed inset-x-0 bottom-0 z-[60] bg-accent px-4 py-2 text-center text-[11px] leading-snug tracking-[0.04em] text-dark md:text-xs"
+        >
+          Demo website made for Cafe Elio by Shibam Studio · Not the official site · Prices, offers and story text are samples
+        </div>
         <main id="main-content">
           <Suspense fallback={null}>
             <Routes>

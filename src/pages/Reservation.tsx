@@ -60,7 +60,7 @@ export function Reservation() {
           everything up.
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Button href="tel:+910000000000">Call Us</Button>
+          <Button href="tel:+919836695438">Call Us</Button>
           <Button variant="outline" onClick={() => setForm((f) => ({ ...f, partySize: 2 }))}>
             Back to Form
           </Button>
@@ -198,7 +198,7 @@ export function Reservation() {
 
                 <div className="flex flex-col gap-4 pt-2 sm:flex-row">
                   <Button type="submit">Confirm Reservation</Button>
-                  <Button href="tel:+910000000000" variant="outline">
+                  <Button href="tel:+919836695438" variant="outline">
                     Call Instead
                   </Button>
                 </div>
@@ -220,10 +220,10 @@ export function Reservation() {
                 Call or WhatsApp us directly for same-day changes or large groups.
               </p>
               <div className="mt-4 flex flex-col gap-3">
-                <Button href="tel:+910000000000" variant="ghost">
-                  +91 00000 00000
+                <Button href="tel:+919836695438" variant="ghost">
+                  +91 98366 95438
                 </Button>
-                <Button href="https://wa.me/910000000000" variant="ghost">
+                <Button href="https://wa.me/919836695438" variant="ghost">
                   WhatsApp Us
                 </Button>
               </div>

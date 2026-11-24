@@ -71,11 +71,11 @@ export const menuPreview = [
   { label: "Dessert", note: "A short, sweet finish", anchor: "/menu#dessert" },
 ];
 
-export const hours = "12:00 PM – 10:00 PM, daily";
+export const hours = "Opens 12:00 PM daily";
 
 export const address = {
   line1: "124/1, Ananda Pally, Regent Estate",
   line2: "Jadavpur, Kolkata, West Bengal 700092",
-  // TODO: replace with the venue's real published phone number before launch.
-  phone: "+91 00000 00000",
+  // From the cafe's public Google Business Profile.
+  phone: "+91 98366 95438",
 };
